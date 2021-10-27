@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboards Entregaveis</title>
+
+    <link rel="stylesheet" href="estilo.css.css" />
+
+    <!-- library-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+
+<h1>Gráficos</h1><br><br>
+
+
+<body>
+    <div class="dash-container">
+        <!-- Gráfico de barrinha -->
+        <div class="graph">
+            <canvas id="chartbar" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <!-- Gráfico de Linha -->
+        <div class="graph">
+            <canvas id="chartlinha" style="width: 100%; height: 100%;"></canvas>
+        </div>
+
+        <!-- Grafico Pizza -->
+        <div class="graph">
+            <canvas id="chartpie" style="width: 100%; height: 100%;"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    var ctxlinha = document.getElementById("chartlinha").getContext("2d");
+    var rotuloslinha = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021];
+    var datalinha = [540.00, 622.00, 678.00, 724.00, 788.00, 880.00, 937.00, 954.00, 998.00, 1045.00, 1100.00];
+    var configslinha = {
+        type: 'line',
+        data: {
+            labels: rotuloslinha,
+            datasets: [
+                {
+                    label: 'Salário Mínimo (R$)',
+                    data: datalinha,
+                    backgroundColor: [
+                        'red',
+                        'yellow',
+                        'lightblue',
+                        'darkblue',
+                        'green',
+                        'grey',
+                        'brown',
+                        'darkred'
+                    ],
+                    borderColor: [
+                        'red',
+                        'yellow',
+                        'lightblue',
+                        'darkblue',
+                        'green',
+                        'grey',
+                        'brown',
+                        'darkred'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
+        }
+    }
+    var ax1_chartlinha = new Chart(ctxlinha, configslinha);
+
+
+    var ctxbarra = document.getElementById("chartbar").getContext("2d");
+    var rotulosbarra = ["Norte", "Nordeste", "Sudeste", "Sul", "Sudeste"];
+    var databarra = [1711, 1539, 2585, 2499, 2498];
+    var configsbarra = {
+        type: 'bar',
+        data: {
+            labels: rotulosbarra,
+            datasets: [
+                {
+                    label: 'Média de salário por região (R$)',
+                    data: databarra,
+                    backgroundColor: [
+                        'red',
+                        'yellow',
+                        'lightblue',
+                        'darkblue',
+                        'green',
+                        'grey',
+                        'brown',
+                        'darkred'
+                    ],
+                    borderColor: [
+                        'red',
+                        'yellow',
+                        'lightblue',
+                        'darkblue',
+                        'green',
+                        'grey',
+                        'brown',
+                        'darkred'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
+        }
+    }
+    var ax1_chartbarra = new Chart(ctxbarra, configsbarra);
+
+
+
+    var ctxpie = document.getElementById("chartpie").getContext("2d");
+    var rotulospie = ["Brasil (total)", "Norte", "Nordeste", "Sudeste", "Sul", "Centro-oeste"];
+    var datapie = [11.00, 10.6, 13.6, 11.4, 6.8, 9.3];
+    var configspie = {
+        type: 'pie',
+        data: {
+            labels: rotulospie,
+            datasets: [
+                {
+                    label: 'Desemprego por região (%)',
+                    data: datapie,
+                    backgroundColor: [
+                        'red',
+                        'yellow',
+                        'lightblue',
+                        'darkblue',
+                        'green',
+                        'grey',
+                        'brown',
+                        'darkred',
+                    ],
+                    borderColor: [
+                        'red',
+                        'yellow',
+                        'lightblue',
+                        'darkblue',
+                        'green',
+                        'grey',
+                        'brown',
+                        'darkred'
+                    ],
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
+        }
+    }
+    var ax1_chartpie = new Chart(ctxpie, configspie);
+</script>
